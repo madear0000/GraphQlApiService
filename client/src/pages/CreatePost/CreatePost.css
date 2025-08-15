@@ -1,0 +1,38 @@
+.create-post-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .post-form input,
+  .post-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+  }
+  
+  .post-form textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  .post-form button {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: var(--transition);
+  }
+  
+  .post-form button:hover {
+    background: var(--secondary);
+}
