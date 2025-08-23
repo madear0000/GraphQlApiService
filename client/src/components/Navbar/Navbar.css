@@ -52,3 +52,13 @@
   .create-btn:hover {
     background: var(--secondary) !important;
   }
+
+  .auth-btn {
+    background: var(--success) !important;
+    color: white !important;
+  }
+  
+  .logout-btn {
+    background: #ef233c !important;
+    color: white !important;
+  }

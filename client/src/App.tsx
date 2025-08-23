@@ -5,8 +5,11 @@ import { Home } from './pages/Home/Home';
 import { Users } from './pages/Users/Users';
 import { Posts } from './pages/Posts/Posts';
 import { CreatePost } from './pages/CreatePost/CreatePost';
+import { Login } from './pages/Auth/Login';
+import { Register } from './pages/Auth/Register';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
-export default function App() {
+export function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,7 +17,16 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="users" element={<Users />} />
           <Route path="posts" element={<Posts />} />
-          <Route path="create-post" element={<CreatePost />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route
+            path="create-post"
+            element={
+              <ProtectedRoute>
+                <CreatePost />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

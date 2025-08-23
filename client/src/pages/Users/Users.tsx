@@ -1,30 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Users.css'
-
-const users = [
-  { id: 1, name: 'Иван Иванов', posts: 5 },
-  { id: 2, name: 'Мария Петрова', posts: 12 }
-]
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_USERS } from '../../api/queries';
+import './Users.css';
 
 export function Users() {
+  const { loading, error, data } = useQuery(GET_USERS, {
+    variables: { limit: 10, offset: 0 }
+  });
+
+  if (loading) return <div className="loading">Загрузка...</div>;
+  if (error) return <div className="error">Ошибка: {error.message}</div>;
+
   return (
     <div className="users-page">
       <h1>Пользователи</h1>
       <div className="users-grid">
-        {users.map(user => (
+        {data.users.map((user: any) => (
           <div key={user.id} className="user-card">
             <div className="user-avatar">
-              {user.name.charAt(0)}
+              <img src={user.icon} alt={user.username} />
             </div>
-            <h3 className="user-name">{user.name}</h3>
-            <p className="user-posts">Постов: {user.posts}</p>
-            <Link to={`/posts?userId=${user.id}`} className="user-link">
-              Посмотреть посты
-            </Link>
+            <h3 className="user-name">{user.username}</h3>
+            <p className="user-posts">Постов: {user.posts.length}</p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }

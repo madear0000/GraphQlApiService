@@ -32,3 +32,18 @@
       transform: translateY(0);
     }
 }
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--primary);
+  }
+  
+  .error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #fecaca;
+  }

@@ -1,8 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Navbar.css';
 
 export function Navbar() {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar">
       <h1 className="logo">GraphQL Blog</h1>
@@ -16,9 +23,21 @@ export function Navbar() {
         <NavLink to="/posts" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Посты
         </NavLink>
-        <NavLink to="/create-post" className="nav-link create-btn">
-          + Создать пост
-        </NavLink>
+        
+        {isAuthenticated ? (
+          <>
+            <NavLink to="/create-post" className="nav-link create-btn">
+              + Создать пост
+            </NavLink>
+            <button onClick={handleLogout} className="nav-link logout-btn">
+              Выйти
+            </button>
+          </>
+        ) : (
+          <NavLink to="/login" className="nav-link auth-btn">
+            Войти
+          </NavLink>
+        )}
       </div>
     </nav>
   );
