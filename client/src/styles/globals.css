@@ -1,70 +1,49 @@
-/* Custom styles to enhance Bootstrap */
-body {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    min-height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   
-  .card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: var(--dark);
+    line-height: 1.6;
   }
   
-  .card:hover {
-    transform: translateY(-2px);
+  a {
+    text-decoration: none;
+    color: inherit;
   }
   
-  .btn {
-    transition: all 0.2s ease;
-  }
-  
-  .btn:hover {
-    transform: translateY(-1px);
-  }
-  
-  .navbar-brand {
-    font-weight: 700;
-  }
-  
-  /* Custom table styles */
-  .table th {
-    border-top: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    color: #6c757d;
-  }
-  
-  /* Loading spinner center */
-  .d-flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-  }
-  
-  /* Post card enhancements */
-  .post-card {
+  button {
+    cursor: pointer;
     border: none;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background: none;
   }
   
-  .post-card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Form enhancements */
-  .form-control:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
-  }
-  
-  /* Responsive improvements */
-  @media (max-width: 768px) {
-    .container {
-      padding-left: 15px;
-      padding-right: 15px;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
-    
-    .display-4 {
-      font-size: 2rem;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--primary);
+  }
+  
+  .error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #fecaca;
   }
